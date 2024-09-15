@@ -1,19 +1,20 @@
-import PropTypes from "prop-types";
-import css from "./Profile.module.css";
+import css from './Profile.module.css';
 
 const Profile = ({
-  username,
-  tag,
-  location,
-  avatar,
-  stats: { followers, views, likes },
+  userDate: {
+    username,
+    tag,
+    location,
+    avatar,
+    stats: { followers, views, likes },
+  },
 }) => {
   return (
     <div className={css.card}>
       <div className={css.description}>
         <img src={avatar} alt="User avatar" className={css.avatar} />
         <p className={css.userName}>{username}</p>
-        <p className={css.userInfo}>&#64;{tag}</p>
+        <p className={css.userInfo}>@{tag}</p>
         <p className={css.userInfo}>{location}</p>
       </div>
 
@@ -33,14 +34,6 @@ const Profile = ({
       </ul>
     </div>
   );
-};
-
-Profile.propTypes = {
-  username: PropTypes.string,
-  tag: PropTypes.string,
-  location: PropTypes.string,
-  avatar: PropTypes.string,
-  stats: PropTypes.objectOf(PropTypes.number),
 };
 
 export default Profile;
